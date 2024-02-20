@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<h1>Users Table</h1>
+<table >
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Is Active</th>
+        <th>Action</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for u in users %}
+    <tr>
+        <td>{{u.id}}</td>
+        <td>{{u.username}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.is_active}}</td>
+        <td><a href="{% url 'delete' u.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+{% endblock content %}
